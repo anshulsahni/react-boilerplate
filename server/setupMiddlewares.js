@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const compression = require('compression');
 
-const config = require('../../internals/config.json');
+const config = require('../internals/config.json');
 
 // Dev middleware
 const addDevMiddlewares = (app, webpackConfig) => {
@@ -64,7 +64,7 @@ module.exports = (app, options) => {
   if (isProd) {
     addProdMiddlewares(app, options);
   } else {
-    const webpackConfig = require('../../internals/webpack/webpack.dev.babel');
+    const webpackConfig = require('../internals/webpack/webpack.dev.babel');
     addDevMiddlewares(app, webpackConfig);
   }
 

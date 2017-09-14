@@ -3,14 +3,14 @@ const express = require('express');
 const log = require('logem');
 
 const argv = require('minimist')(process.argv.slice(2));
-const setup = require('./middlewares/frontendMiddleware');
+const setupMiddlewares = require('./setupMiddlewares');
 const logServerStarted = require('./logServerStarted');
 
 const resolve = require('path').resolve;
 const app = express();
 
 // In production we need to pass these values in instead of relying on webpack
-setup(app, {
+setupMiddlewares(app, {
   outputPath: resolve(process.cwd(), 'build'),
   publicPath: '/',
 });
