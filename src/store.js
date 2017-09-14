@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import sagas from './sagas';
-import createReducer from './reducers';
+import reducers from './reducers';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -31,7 +31,7 @@ export default function configureStore(initialState = {}) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(),
+    reducers,
     initialState,
     composeEnhancers(...enhancers)
   );

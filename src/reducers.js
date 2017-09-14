@@ -10,9 +10,6 @@ import { routerReducer } from 'react-router-redux';
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
-export default function createReducer(asyncReducers) {
-  return combineReducers({
-    routing: routerReducer,
-    ...asyncReducers,
-  });
-}
+export default combineReducers({
+  routing: routerReducer,
+});
