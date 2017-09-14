@@ -6,11 +6,12 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const cheerio = require('cheerio');
+const log = require('logem');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-const logger = require('../../server/logger');
+
 const config = require('../config.json');
 
 const plugins = [
@@ -76,7 +77,7 @@ function dependencyHandlers() {
   const manifestPath = path.resolve(dllOutputPath, 'main.json');
 
   if (!fs.existsSync(manifestPath)) {
-    logger.error('The DLL manifest is missing. Please run `npm run build:dll`');
+    log.error('The DLL manifest is missing. Please run `npm run build:dll`');
     process.exit(0);
   }
 
