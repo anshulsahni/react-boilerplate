@@ -1,0 +1,20 @@
+{
+  "dllOutputPath": "node_modules/react-boilerplate-dlls",
+
+  "exclude": [
+    "chalk",
+    "compression",
+    "cross-env",
+    "express",
+    "ip",
+    "minimist",
+    "sanitize.css"
+  ],
+
+  "include": [
+    "core-js",
+    "eventsource-polyfill",
+    "babel-polyfill",
+    "lodash"
+  ]
+}
