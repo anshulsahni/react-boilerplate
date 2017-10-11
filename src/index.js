@@ -17,14 +17,14 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './store';
 
 // Import routes
-import Home from './modules/pages/Home';
+import App from './App';
 
 
 // Set up the router, wrapping all Routes in the App component
 ReactDOM.render(
   <Provider store={configureStore()}>
     <Router>
-      <Route path="/" component={Home} />
+      <Route path="/" component={App} />
     </Router>
   </Provider>,
   document.getElementById('app')
