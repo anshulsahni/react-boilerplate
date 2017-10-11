@@ -6,7 +6,6 @@ import Home from './modules/pages/Home';
 
 const App = () => (
   <div>
-    Anshul Sahni
     <Route path="/home" component={Home} />
   </div>
 );
