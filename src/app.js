@@ -12,23 +12,18 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import configureStore from './store';
 
 // Import routes
 import Home from './modules/pages/Home';
 
-const initialState = {};
-const store = configureStore(initialState, browserHistory);
-
-const history = syncHistoryWithStore(browserHistory, store);
 
 // Set up the router, wrapping all Routes in the App component
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
+  <Provider store={configureStore()}>
+    <Router>
       <Route path="/" component={Home} />
     </Router>
   </Provider>,
