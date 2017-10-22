@@ -23,8 +23,7 @@
     "lint:js": "eslint --ignore-path .gitignore",
     "lint:staged": "lint-staged",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test mocha -r babel-core/register -r babel-polyfill 'src/**/*.test.js' 'src/**/*.test.jsx'",
-    "test:watch": "cross-env NODE_ENV=test jest --watchAll"
+    "test": "cross-env NODE_ENV=test mocha -r babel-core/register -r babel-polyfill 'src/**/*.test.js' 'src/**/*.test.jsx'"
   },
   "dependencies": {
     "babel-polyfill": "6.20.0",
