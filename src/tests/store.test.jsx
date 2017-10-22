@@ -3,24 +3,32 @@
  */
 
 import { browserHistory } from 'react-router';
+import { expect } from 'chai';
+
 import configureStore from '../store';
 
-describe('configureStore', () => {
+describe('store', () => {
   let store;
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = configureStore({}, browserHistory);
   });
 
-  describe('asyncReducers', () => {
-    it('should contain an object for async reducers', () => {
-      expect(typeof store.asyncReducers).toBe('object');
+  describe('dispatch', () => {
+    it('should contain an dispatch function', () => {
+      expect(typeof store.dispatch).to.equal('function');
     });
   });
 
-  describe('runSaga', () => {
-    it('should contain a hook for `sagaMiddleware.run`', () => {
-      expect(typeof store.runSaga).toBe('function');
+  describe('subscribe', () => {
+    it('should contain a subscribe function', () => {
+      expect(typeof store.subscribe).to.equal('function');
+    });
+  });
+
+  describe('getState', () => {
+    it('should contain a getState function', () => {
+      expect(typeof store.getState).to.equal('function');
     });
   });
 });
