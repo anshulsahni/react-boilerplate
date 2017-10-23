@@ -19,7 +19,6 @@ import configureStore from './store';
 // Import routes
 import App from './App';
 
-
 // Set up the router, wrapping all Routes in the App component
 ReactDOM.render(
   <Provider store={configureStore()}>
