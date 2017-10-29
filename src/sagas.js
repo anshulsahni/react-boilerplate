@@ -1,3 +1,7 @@
+import { fork } from 'redux-saga/effects';
+
+import fetchRandomUserDetails from './modules/pages/Home/sagas/fetchRandomUserDetails';
+
 export default function* sagas() {
-  // all the sagas should forked here
+  yield fork(fetchRandomUserDetails);
 }
