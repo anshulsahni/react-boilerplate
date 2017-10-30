@@ -9,7 +9,7 @@ class HomeScreen extends Component {
   renderUserDetails = () => {
     const { title, first, last } = this.props.user.name;
     return (
-      <div>
+      <div className="user-details">
         Random User loaded is: {`${title} ${first} ${last}`}
       </div>
     );
@@ -22,10 +22,10 @@ class HomeScreen extends Component {
     } = this.props;
 
     return (
-      <div>
-        {loading && <div>Loading...</div>}
+      <div className="home-screen">
+        {loading && <div className="pre-loader">Loading...</div>}
         {user.name && this.renderUserDetails()}
-        {error && <div>Unexpected Error Occured Please reload</div>}
+        {error && <div className="error">Unexpected Error Occured Please reload</div>}
       </div>
     );
   }
@@ -45,6 +45,7 @@ HomeScreen.propTypes = {
 };
 
 HomeScreen.defaultProps = {
+  fetchRandomUserDetails: () => {},
   loading: false,
   user: {},
   error: '',
