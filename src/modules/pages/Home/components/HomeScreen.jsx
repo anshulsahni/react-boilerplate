@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 
 class HomeScreen extends Component {
   componentDidMount() {
     this.props.fetchRandomUserDetails();
   }
 
-  render() {
+  renderUserDetails = () => {
+    const { title, first, last } = this.props.user.name;
     return (
-      <div>{this.props.loading}</div>
+      <div>
+        Random User loaded is: {`${title} ${first} ${last}`}
+      </div>
+    );
+  }
+  render() {
+    const {
+      loading,
+      user,
+      error,
+    } = this.props;
+
+    return (
+      <div>
+        {loading && <div>Loading...</div>}
+        {user.name && this.renderUserDetails()}
+        {error && <div>Unexpected Error Occured Please reload</div>}
+      </div>
     );
   }
 }
@@ -16,10 +34,20 @@ class HomeScreen extends Component {
 HomeScreen.propTypes = {
   fetchRandomUserDetails: PropTypes.func.isRequired,
   loading: PropTypes.bool,
+  user: shape({
+    name: shape({
+      title: PropTypes.string.isRequired,
+      first: PropTypes.string.isRequired,
+      last: PropTypes.string.isRequired,
+    }).isRequired,
+  }),
+  error: PropTypes.string,
 };
 
 HomeScreen.defaultProps = {
   loading: false,
+  user: {},
+  error: '',
 };
 
 export default HomeScreen;

@@ -4,8 +4,8 @@ import { fetchUser } from './actions';
 
 import HomeScreen from './components/HomeScreen';
 
-const mapStateToProps = ({ home: { networkBusy } }) => ({
-  loading: networkBusy,
+const mapStateToProps = ({ home: { networkBusy: loading, user, error } }) => ({
+  loading, user, error,
 });
 
 const mapDispatchToProps = dispatch => ({
