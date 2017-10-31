@@ -39,7 +39,7 @@ HomeScreen.propTypes = {
       title: PropTypes.string.isRequired,
       first: PropTypes.string.isRequired,
       last: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
   }),
   error: PropTypes.string,
 };
