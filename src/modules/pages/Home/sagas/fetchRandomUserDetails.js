@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 
 import { getRandomUser } from '../../../../api/randomUser';
 
@@ -9,10 +9,10 @@ import {
   setError,
 } from '../actions';
 
-function* fetchUser() {
+export function* fetchUser() {
   try {
     yield put(changeNetworkBusyStatus(true));
-    const { results: users } = yield getRandomUser();
+    const { results: users } = yield call(getRandomUser);
     yield put(loadUser(users[0]));
     yield put(changeNetworkBusyStatus(false));
   } catch (error) {
