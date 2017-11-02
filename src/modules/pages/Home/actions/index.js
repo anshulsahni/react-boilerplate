@@ -1,4 +1,9 @@
-import { FETCH_USER, CHANGE_NETWORK_BUSY_STATUS, SET_ERROR, LOAD_USER } from '../constants';
+import {
+  FETCH_USER,
+  CHANGE_NETWORK_BUSY_STATUS,
+  SET_ERROR,
+  LOAD_USER,
+} from '../constants';
 
 export const fetchUser = () => ({
   type: FETCH_USER
