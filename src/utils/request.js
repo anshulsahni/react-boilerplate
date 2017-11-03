@@ -1,43 +1,40 @@
-import 'whatwg-fetch';
+import axios from 'axios';
 
-/**
- * Parses the JSON returned by a network request
- *
- * @param  {object} response A response from a network request
- *
- * @return {object}          The parsed JSON from the request
- */
-function parseJSON(response) {
-  return response.json();
+class Request {
+  get = (url, data, options = {}) => request({
+    url,
+    params: {
+      ...data,
+    },
+    ...options,
+  })
+
+  post = (...args) => sendOtherThanGet('post', ...args);
+
+  patch = (...args) => sendOtherThanGet('patch', ...args);
+
+  delete = (...args) => sendOtherThanGet('delete', ...args);
+
+  put = (...args) => sendOtherThanGet('put', ...args);
 }
 
-/**
- * Checks if a network request came back fine, and throws an error if not
- *
- * @param  {object} response   A response from a network request
- *
- * @return {object|undefined} Returns either the response, or throws an error
- */
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
+let request = (options) => new Promise((resolve, reject) => {
+  axios({
+    ...options,
+  })
+    .then(({ data, headers, status }) => {
+      resolve(data, headers, status);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+});
 
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
-}
+let sendOtherThanGet = (method, url, data, options) => request({
+  url,
+  data,
+  method,
+  ...options,
+});
 
-/**
- * Requests a URL, returning a promise
- *
- * @param  {string} url       The URL we want to request
- * @param  {object} [options] The options we want to pass to "fetch"
- *
- * @return {object}           The response data
- */
-export default function request(url, options) {
-  return fetch(url, options)
-    .then(checkStatus)
-    .then(parseJSON);
-}
+export default new Request();

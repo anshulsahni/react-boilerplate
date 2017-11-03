@@ -8,7 +8,7 @@ import App from '../App';
 import getStore from '../store';
 
 describe('App test', () => {
-  it('checks for HomeScreen text getting rendered on home route', () => {
+  it('checks for HomeScreen getting rendered on home route', () => {
     const wrapper = render(
       <Provider store={getStore()}>
         <MemoryRouter initialEntries={['/home']}>
@@ -16,6 +16,6 @@ describe('App test', () => {
         </MemoryRouter>
       </Provider>
     );
-    expect(wrapper.text()).to.contain('Hello World !');
+    expect(wrapper.find('.home-screen')).to.have.length(1);
   });
 });
