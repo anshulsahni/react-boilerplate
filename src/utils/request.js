@@ -18,7 +18,7 @@ class Request {
   put = (...args) => sendOtherThanGet('put', ...args);
 }
 
-let request = (options) => new Promise((resolve, reject) => {
+let request = options => new Promise((resolve, reject) => {
   axios({
     ...options,
   })
