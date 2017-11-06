@@ -21,8 +21,7 @@
   },
   "rules": {
     "arrow-parens": [
-      "error",
-      "always"
+      "error"
     ],
     "arrow-body-style": [
       2,
