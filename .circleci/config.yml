@@ -3,6 +3,6 @@ version: 2
     build:
       docker:
         - image: circleci/node:8.5.0
-      step:
+      steps:
         - checkout
         - run: npm test
