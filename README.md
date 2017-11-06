@@ -34,11 +34,11 @@ The file structure is very simple, starting with **folders in the root
 
 Here are the **configuration** files used by different _node modules_ in the root of the react app.
 
-  - **.babelrc**: for babel
-  - **.editorconfig**: for different editors
-  - **.elsintrc.json**: for eslint.
-  - **.lintstagedrc**: for lintstagedrc node module
-  - **.cricleci/config.yml**: for circle CI.
+  - **.babelrc**: for [babel](https://babeljs.io/)
+  - **.editorconfig**: for different editors, for more details please check [editorconfig.org](http://editorconfig.org/)
+  - **.elsintrc.json**: for [eslint](https://eslint.org/).
+  - **.lintstagedrc**: for [lint-staged](https://github.com/okonet/lint-staged) node module
+  - **.cricleci/config.yml**: for [circle CI](https://circleci.com/).
 
 
 ### Webpack Configuration
