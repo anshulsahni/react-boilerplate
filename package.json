@@ -20,7 +20,7 @@
     "start:production": "npm run test && npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
     "lint": "npm run lint:js",
-    "lint:js": "eslint src/**/*.js src/**/*.jsx --ignore-path .gitignore",
+    "lint:js": "eslint 'src/**/*.js' 'src/**/*.jsx' --ignore-path .gitignore",
     "lint:staged": "lint-staged",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test mocha -r babel-core/register -r babel-polyfill 'src/**/*.test.js' 'src/**/*.test.jsx'"
