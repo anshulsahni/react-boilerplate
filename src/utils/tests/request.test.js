@@ -18,7 +18,7 @@ describe('Request module', () => {
 
     it('checks functionality of request.get', () => {
       request.get(`${sampleHost}/${sampleResource}`)
-        .then(response => {
+        .then((response) => {
           expect(response).to.deep.equal(sampleGetResponse);
         });
     });
@@ -33,7 +33,7 @@ describe('Request module', () => {
 
     it('checks functionality of request.post', () => {
       request.post(`${sampleHost}/${sampleResource}`)
-        .then(reponse => {
+        .then((reponse) => {
           expect(reponse).to.deep.equal(sampleGetResponse);
         });
     });

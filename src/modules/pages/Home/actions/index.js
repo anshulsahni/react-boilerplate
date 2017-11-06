@@ -6,7 +6,7 @@ import {
 } from '../constants';
 
 export const fetchUser = () => ({
-  type: FETCH_USER
+  type: FETCH_USER,
 });
 
 export const changeNetworkBusyStatus = networkBusy => ({
